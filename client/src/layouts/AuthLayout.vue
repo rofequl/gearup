@@ -1,0 +1,69 @@
+<script setup>
+import {getAssetPath} from "@/core/helpers/assets";
+</script>
+
+<template>
+  <!--begin::Authentication Layout -->
+  <div :style="`background-image: url('${getAssetPath('media/misc/auth-bg.svg')}')`"
+       class="d-flex flex-column flex-lg-row flex-column-fluid bgi-size-cover bgi-position-center">
+    <!--begin::Body-->
+    <div class="d-flex flex-column flex-lg-row-fluid w-lg-50 p-10 order-2 order-lg-1">
+      <!--begin::Form-->
+      <div class="d-flex flex-center flex-column flex-lg-row-fluid">
+        <!--begin::Wrapper-->
+        <div class="w-lg-500px p-10">
+          <router-view></router-view>
+        </div>
+        <!--end::Wrapper-->
+      </div>
+      <!--end::Form-->
+
+      <!--begin::Footer-->
+      <div class="d-flex flex-center flex-wrap px-5">
+        <!--begin::Links-->
+        <div class="d-flex fw-semibold text-primary fs-base">
+          <a class="px-5" href="#" target="_blank">Terms</a>
+          <a class="px-5" href="#" target="_blank">Plans</a>
+          <a class="px-5" href="#" target="_blank">Contact Us</a>
+        </div>
+        <!--end::Links-->
+      </div>
+      <!--end::Footer-->
+    </div>
+    <!--end::Body-->
+    <!--begin::Aside-->
+    <div class="d-flex flex-lg-row-fluid w-lg-50 bgi-size-cover bgi-position-center order-1 order-lg-2">
+      <!--begin::Content-->
+      <div class="d-flex flex-column flex-center py-7 py-lg-15 px-5 px-md-15 w-100">
+        <!--begin::Logo-->
+        <router-link class="mb-0 mb-lg-10" to="/">
+          <img :src="getAssetPath('media/logos/custom-1.png')" alt="Logo" class="h-90px h-lg-95px"/>
+        </router-link>
+        <!--end::Logo-->
+
+        <!--begin::Image-->
+        <img :src="getAssetPath('media/misc/auth-screens.png')" alt="" class="d-none d-lg-block mx-auto w-275px w-md-50 w-xl-600px mb-0 mb-lg-10"/>
+        <!--end::Image-->
+
+        <!--begin::Title-->
+        <h1 class="d-none d-lg-block text-dark fs-2qx fw-bolder text-center mb-7">
+          Your All-in-One Task Management Solution
+        </h1>
+        <!--end::Title-->
+
+        <!--begin::Text-->
+        <div class="d-none d-lg-block text-dark fs-base text-center">
+          Experience the power of streamlined task management with Gearup.<br/>
+          Effortlessly organize projects, track progress, collaborate seamlessly with your team, and
+          boost your productivity. <br/>
+          Gearup offers a user-friendly interface with intuitive features <br/>
+          designed to simplify your workflow and help you achieve your goals.
+        </div>
+        <!--end::Text-->
+      </div>
+      <!--end::Content-->
+    </div>
+    <!--end::Aside-->
+  </div>
+  <!--end::Authentication Layout -->
+</template>

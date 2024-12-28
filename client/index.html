@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content=" Gearup is your all-in-one task management solution. Organize projects, track progress, collaborate seamlessly with your team, and boost your productivity."
+          name="description"/>
+    <link href="/favicon.ico" rel="icon">
+    <link href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" rel="stylesheet">
+    <link href="/splash-screen.css" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Welcome to Gearup!</title>
+</head>
+<body class="page-loading">
+<!--begin::Theme mode setup on page load-->
+<script>
+    let themeMode = "system";
+
+    if (localStorage.getItem("kt_theme_mode_value")) {
+        themeMode = localStorage.getItem("kt_theme_mode_value");
+    }
+
+    if (themeMode === "system") {
+        themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+
+    document.documentElement.setAttribute("data-bs-theme", themeMode);
+</script>
+<!--end::Theme mode setup on page load-->
+
+<div id="app"></div>
+
+<!--begin::Loading markup-->
+<div id="splash-screen" class="splash-screen">
+    <img alt="Keenthemes dark logo" class="dark-logo" src="media/logos/keenthemes-dark.svg"/>
+    <img alt="Keenthemes light logo" class="light-logo" src="media/logos/keenthemes.svg"/>
+    <div class="loader-wrapper">
+        <span class="loader"></span>
+        <span class="loading-text">Loading...</span>
+    </div>
+</div>
+<!--end::Loading markup-->
+
+<script src="/src/main.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<script setup>
+import {getAssetPath} from "@/core/helpers/assets";
+import {headerWidthFluid} from "@/layouts/default-layout/config/helper";
+import {useRoute} from "vue-router";
+
+const MainMenuConfig = [
+  {
+    pages: [
+      {
+        heading: "dashboard",
+        route: "/dashboard",
+        keenthemesIcon: "element-11",
+        bootstrapIcon: "bi-app-indicator",
+      },
+    ],
+  }
+];
+const route = useRoute();
+import {headerMenuIcons} from "@/layouts/default-layout/config/helper";
+
+const hasActiveChildren = (match) => {
+  return route.path.indexOf(match) !== -1;
+};
+</script>
+<template>
+  <!-- begin:: Body -->
+  <div class="">
+    <!--begin::Header-->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img :src="getAssetPath('media/logos/keenthemes.png')" alt="Logo" class="h-30px"/>
+        </a>
+        <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
+                data-bs-target="#navbarSupportedContent"
+                data-bs-toggle="collapse" type="button">
+          <KTIcon icon-class="fs-2x" icon-name="abstract-14"/>
+        </button>
+        <div id="navbarSupportedContent" class="collapse navbar-collapse">
+          <!--begin::Menu-->
+          <div class="menu menu-rounded menu-column menu-lg-row menu-active-bg menu-title-gray-600 fw-semibold
+              fw-semibold fs-6 my-5 my-lg-0 px-2 px-lg-0 d-flex justify-content-center">
+            <!--begin:Menu item-->
+            <div class="menu-item menu-here-bg">
+              <!--begin:Menu link-->
+              <span class="menu-link">
+                <span class="menu-icon">
+                  <i class="ki-outline ki-category fs-3"></i>
+                </span>
+                <span class="menu-title">Dashboards</span>
+              </span>
+              <!--end:Menu link-->
+            </div>
+            <!--end:Menu item-->
+            <!--begin:Menu item-->
+            <div class="menu-item menu-here-bg me-0 me-lg-2">
+              <!--begin:Menu link-->
+              <span class="menu-link">
+                <span class="menu-icon">
+                  <i class="ki-outline ki-category fs-3"></i>
+                </span>
+                <span class="menu-title">Dashboards</span>
+              </span>
+              <!--end:Menu link-->
+            </div>
+            <!--end:Menu item-->
+          </div>
+          <!--end::Menu-->
+          <div class="d-flex">
+            <!--begin::Action-->
+            <div class="app-navbar-item ms-2">
+              <a class="btn btn-flex btn-icon btn-secondary align-self-center fw-bold h-35px w-md-100 py-2 px-4" data-bs-target="#kt_modal_upgrade_plan"
+                 data-bs-toggle="modal"
+                 href="#">
+                <i class="ki-outline ki-crown-2 fs-4"></i>
+                <span class="d-none d-md-inline ms-1 fs-7">SignIn</span>
+              </a>
+            </div>
+            <!--end::Action-->
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!--end::Header-->
+  </div>
+  <!-- end:: Body -->
+</template>
