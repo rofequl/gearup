@@ -1,0 +1,18 @@
+const express = require('express');
+const yoga = require('./graphql');
+require('dotenv').config();
+
+const app = express();
+
+// We provide a root route just as an example
+app.get('/', (req, res) => {
+    res.send(`<h2>Hello, Sequelize + Express!</h2>`);
+})
+
+app.use('/graphql', yoga);
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}/graphql`);
+});

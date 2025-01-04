@@ -1,0 +1,12 @@
+// Custom text color
+.text-primary-300 {
+  color: #336600;
+}
+
+.text-primary-200 {
+  color: #00994D;
+}
+
+.text-primary-100 {
+  color: #999900;
+}

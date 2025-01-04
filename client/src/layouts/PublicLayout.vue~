@@ -1,53 +1,35 @@
 <script setup>
 import {getAssetPath} from "@/core/helpers/assets";
-import {headerWidthFluid} from "@/layouts/default-layout/config/helper";
+import KTIcon from "@/core/helpers/kt-icon/KTIcon.vue";
 import {useRoute} from "vue-router";
 
-const MainMenuConfig = [
-  {
-    pages: [
-      {
-        heading: "dashboard",
-        route: "/dashboard",
-        keenthemesIcon: "element-11",
-        bootstrapIcon: "bi-app-indicator",
-      },
-    ],
-  }
-];
-const route = useRoute();
-import {headerMenuIcons} from "@/layouts/default-layout/config/helper";
-
-const hasActiveChildren = (match) => {
-  return route.path.indexOf(match) !== -1;
-};
+const route = useRoute()
 </script>
 <template>
   <!-- begin:: Body -->
   <div class="">
     <!--begin::Header-->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+    <nav class="navbar navbar-expand-lg border-bottom shadow-sm sticky-top bg-white">
+      <div class="container">
+        <router-link class="navbar-brand" to="/">
           <img :src="getAssetPath('media/logos/keenthemes.png')" alt="Logo" class="h-30px"/>
-        </a>
+        </router-link>
         <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
-                data-bs-target="#navbarSupportedContent"
-                data-bs-toggle="collapse" type="button">
+                data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button">
           <KTIcon icon-class="fs-2x" icon-name="abstract-14"/>
         </button>
         <div id="navbarSupportedContent" class="collapse navbar-collapse">
           <!--begin::Menu-->
           <div class="menu menu-rounded menu-column menu-lg-row menu-active-bg menu-title-gray-600 fw-semibold
-              fw-semibold fs-6 my-5 my-lg-0 px-2 px-lg-0 mx-auto" d-flex justify-content-center>
+              fw-semibold fs-6 my-5 my-lg-0 px-2 px-lg-0 d-flex justify-content-center">
             <!--begin:Menu item-->
             <div class="menu-item menu-here-bg">
               <!--begin:Menu link-->
-              <span class="menu-link">
+              <span :class="route.name === 'terms'? 'active' : ''" class="menu-link">
                 <span class="menu-icon">
-                  <i class="ki-outline ki-category fs-3"></i>
+                  <i class="ki-outline ki-document fs-3"></i>
                 </span>
-                <span class="menu-title">Dashboards</span>
+                <span class="menu-title">Terms</span>
               </span>
               <!--end:Menu link-->
             </div>
@@ -57,9 +39,33 @@ const hasActiveChildren = (match) => {
               <!--begin:Menu link-->
               <span class="menu-link">
                 <span class="menu-icon">
-                  <i class="ki-outline ki-category fs-3"></i>
+                  <i class="ki-outline ki-grid fs-3"></i>
                 </span>
-                <span class="menu-title">Dashboards</span>
+                <span class="menu-title">Plans</span>
+              </span>
+              <!--end:Menu link-->
+            </div>
+            <!--end:Menu item-->
+            <!--begin:Menu item-->
+            <div class="menu-item menu-here-bg me-0 me-lg-2">
+              <!--begin:Menu link-->
+              <span class="menu-link">
+                <span class="menu-icon">
+                  <i class="ki-outline ki-information fs-3"></i>
+                </span>
+                <span class="menu-title">About</span>
+              </span>
+              <!--end:Menu link-->
+            </div>
+            <!--end:Menu item-->
+            <!--begin:Menu item-->
+            <div class="menu-item menu-here-bg me-0 me-lg-2">
+              <!--begin:Menu link-->
+              <span class="menu-link">
+                <span class="menu-icon">
+                  <i class="ki-outline ki-directbox-default fs-3"></i>
+                </span>
+                <span class="menu-title">Contact Us</span>
               </span>
               <!--end:Menu link-->
             </div>
@@ -69,12 +75,10 @@ const hasActiveChildren = (match) => {
           <div class="d-flex">
             <!--begin::Action-->
             <div class="app-navbar-item ms-2">
-              <a class="btn btn-flex btn-icon btn-secondary align-self-center fw-bold h-35px w-md-100 py-2 px-4" data-bs-target="#kt_modal_upgrade_plan"
-                 data-bs-toggle="modal"
-                 href="#">
-                <i class="ki-outline ki-crown-2 fs-4"></i>
-                <span class="d-none d-md-inline ms-1 fs-7">SignIn</span>
-              </a>
+              <router-link class="btn btn-flex btn-icon btn-secondary align-self-center fw-bold h-35px w-md-100 py-2 px-4" to="/sign-in">
+                <i class="ki-outline ki-entrance-right fs-3 text-primary-100"></i>
+                <span class="d-none d-md-inline ms-2 fs-7">SignIn</span>
+              </router-link>
             </div>
             <!--end::Action-->
           </div>
@@ -82,6 +86,72 @@ const hasActiveChildren = (match) => {
       </div>
     </nav>
     <!--end::Header-->
+    <!--begin::Toolbar-->
+    <div id="kt_toolbar" class="toolbar py-3 py-lg-6">
+      <!--begin::Container-->
+      <div id="kt_toolbar_container" class="container-xxl d-flex flex-stack flex-wrap gap-2">
+        <!--begin::Page title-->
+        <div class="page-title d-flex flex-column align-items-start me-3 py-2 py-lg-0 gap-2">
+          <!--begin::Title-->
+          <h1 class="d-flex text-gray-900 fw-bold m-0 fs-3">About Us</h1>
+          <!--end::Title-->
+          <!--begin::Breadcrumb-->
+          <ul class="breadcrumb breadcrumb-dot fw-semibold text-gray-600 fs-7">
+            <!--begin::Item-->
+            <li class="breadcrumb-item text-gray-600">
+              <a class="text-gray-600 text-hover-primary" href="index.html">Home</a>
+            </li>
+            <!--end::Item-->
+            <!--begin::Item-->
+            <li class="breadcrumb-item text-gray-600">Corporate</li>
+            <!--end::Item-->
+            <!--begin::Item-->
+            <li class="breadcrumb-item text-gray-500">About</li>
+            <!--end::Item-->
+          </ul>
+          <!--end::Breadcrumb-->
+        </div>
+        <!--end::Page title-->
+      </div>
+      <!--end::Container-->
+    </div>
+    <!--end::Toolbar-->
+    <!--begin::Container-->
+    <div id="kt_content_container" class="d-flex flex-column-fluid align-items-start container-xxl">
+      <!--begin::Post-->
+      <div id="kt_content" class="content flex-row-fluid">
+        <router-view/>
+      </div>
+      <!--end::Post-->
+    </div>
+    <!--end::Container-->
+    <!--begin::Footer-->
+    <div id="kt_footer" class="footer py-4 d-flex flex-lg-column">
+      <!--begin::Container-->
+      <div class="container-xxl d-flex flex-column flex-md-row align-items-center justify-content-between">
+        <!--begin::Copyright-->
+        <div class="text-gray-900 order-2 order-md-1">
+          <span class="text-muted fw-semibold me-1">2025&copy;</span>
+          <a class="text-gray-800 text-hover-primary" href="/" target="_blank">Gearup</a>
+        </div>
+        <!--end::Copyright-->
+        <!--begin::Menu-->
+        <ul class="menu menu-gray-600 menu-hover-primary fw-semibold order-1">
+          <li class="menu-item">
+            <a class="menu-link px-2" href="https://keenthemes.com" target="_blank">About</a>
+          </li>
+          <li class="menu-item">
+            <a class="menu-link px-2" href="https://devs.keenthemes.com" target="_blank">Support</a>
+          </li>
+          <li class="menu-item">
+            <a class="menu-link px-2" href="https://1.envato.market/EA4JP" target="_blank">Purchase</a>
+          </li>
+        </ul>
+        <!--end::Menu-->
+      </div>
+      <!--end::Container-->
+    </div>
+    <!--end::Footer-->
   </div>
   <!-- end:: Body -->
 </template>

@@ -1,0 +1,22 @@
+const {Sequelize} = require('sequelize');
+require('dotenv').config();
+
+const sequelize = new Sequelize(process.env.DB_DATABASE, process.env.DB_USERNAME, process.env.DB_PASSWORD, {
+    dialect: process.env.DB_CONNECTION,
+    host: dbConfig.HOST,
+    charset: 'utf8mb4',
+    collate: 'utf8mb4_unicode_ci',
+    pool: {
+        max: 5,
+        min: 0,
+        acquire: 30000,
+        idle: 10000
+    },
+    operatorsAliases: 0,
+    supportBigNumbers: true,
+    bigNumberStrings: true,
+    timezone: '+06:00',
+    logging: false
+});
+
+module.exports = sequelize;

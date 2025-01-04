@@ -1,0 +1,8 @@
+const express = require('express');
+const yoga = require('./graphql');
+
+const app = express();
+
+app.use('/graphql', yoga);
+
+module.exports = app;

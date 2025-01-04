@@ -1,0 +1,10 @@
+const { sequelize } = require('../app/models')
+
+async function reset() {
+    console.log('Will rewrite the Mysql database, adding some data.')
+    await sequelize.sync({ force: true })
+    // await db.sync({alter: true})
+    await require('./seeders/DatabaseSeeder')
+}
+
+reset().then(() => console.log('Done, Database drop and re-sync!'))

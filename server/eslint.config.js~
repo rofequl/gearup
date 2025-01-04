@@ -1,0 +1,36 @@
+// eslint.config.js
+const globals = require('globals');
+
+module.exports = [
+  {
+    perserOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'commonjs'
+    },
+    "rules": {
+      "no-console": "off",
+      "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
+      "eqeqeq": ["error", "always"],
+      "strict": ["error", "global"],
+      "curly": ["error", "all"],
+      "no-var": "error",
+      "prefer-const": "warn",
+      "arrow-body-style": ["warn", "as-needed"],
+      "consistent-return": "warn",
+      "node/no-unsupported-features/es-syntax": [
+        "error",
+        { "ignores": ["modules"] }
+      ]
+    },
+    files: ['src/**/*.js'],
+    languageOptions: {
+      ecmaVersion: 2022,
+      sourceType: "commonjs",
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+        myCustomGlobal: "readonly"
+      }
+    }
+  }
+];

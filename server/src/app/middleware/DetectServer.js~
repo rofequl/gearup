@@ -1,0 +1,24 @@
+const DeviceDetector = require('node-device-detector');
+const ClientHints = require('node-device-detector/client-hints')
+
+// init app
+const deviceDetector = new DeviceDetector({
+    clientIndexes: true,
+    deviceIndexes: true,
+    deviceAliasCode: false,
+});
+const clientHints = new ClientHints;
+
+// create middleware
+const middlewareDetect = (req) => {
+    const useragent = req.headers['user-agent'];
+    let meta = {}
+    const clientHintsData = clientHints.parse(res.headers, meta);
+
+    return {
+        useragent: useragent,
+        device: deviceDetector.detect(useragent, clientHintsData),
+    }
+};
+
+module.exports.detectServer = middlewareDetect;

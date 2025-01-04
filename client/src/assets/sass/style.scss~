@@ -1,7 +1,6 @@
 //
 // Theme style
 //
-@import "custom";
 
 // Initialize
 @import "init";

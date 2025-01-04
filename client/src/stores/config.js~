@@ -3,7 +3,7 @@ import {ref} from "vue";
 import objectPath from "object-path";
 import layoutConfig from "@/layouts/default-layout/config/DefaultLayoutConfig";
 
-export const LS_CONFIG_NAME_KEY = 'config_value';
+export const LS_CONFIG_NAME_KEY = 'config_gearup'
 
 export const useConfigStore = defineStore('config', () => {
     const config = ref(layoutConfig)
